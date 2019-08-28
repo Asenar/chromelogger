@@ -2,8 +2,10 @@
 (function () {
     'use strict';
 
-    var active = false;
-    var inactiveSuffix = ' (inactive)';
+    //var active = false;
+    //var inactiveSuffix = ' (inactive)';
+    var active = true;
+    var inactiveSuffix = ' (active)';
 
     // list of all tabs with chrome logger enabled
     var tabsWithExtensionEnabled = [];

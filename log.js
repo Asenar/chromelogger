@@ -78,8 +78,11 @@
                 type = row[column_map.type] || 'log';
 
             if (_showLineNumbers() && backtrace !== null) {
-                console.log('%c' + backtrace, 'color: ' + color1 + '; font-weight: bold;');
-            }
+                //console.log('%c' + backtrace, 'color: ' + color1 + '; font-weight: bold;');
+                console.log(backtrace);
+            } else {
+                console.log(backtrace);
+						}
 
             // new version without label
             var new_version = false;
@@ -129,6 +132,8 @@
 
                 logs.push(current_log);
             }
+            logs.push("OUPS");
+            logs.push(["OUPS", "Tableau"]);
 
             if (!(type in ALLOWED_TYPES)) {
                 type = 'log';
@@ -137,6 +142,7 @@
             console[type].apply(console, logs);
         }
 
+				console.log("callback is", callback);
         if (typeof callback === 'function') {
             callback();
         }

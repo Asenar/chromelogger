@@ -1,34 +1,49 @@
 {
-    "name": "Chrome Logger",
-    "version": "4.1.0",
-    "content_scripts": [
-        {
-            "matches": ["http://*/*", "https://*/*"],
-            "js": ["log.js"],
-            "run_at": "document_start"
-        }
-    ],
-    "background": {
-        "scripts": ["chromelogger.js"]
-    },
-    "options_page": "options.html",
-    "icons": {
-        "16": "icon16.png",
-        "48": "icon48.png",
-        "128": "icon128.png"
-    },
-    "description": "For server side logging and debugging in chrome console.",
-    "browser_action": {
-        "default_icon": "icon38_disabled.png",
-        "default_title": "Chrome Logger"
-    },
-    "minimum_chrome_version": "17",
-    "manifest_version": 2,
-    "permissions":
-    [
-        "webRequest",
-        "tabs",
-        "http://*/*",
-        "https://*/*"
-    ]
+	"manifest_version" : 2,
+  "name": "Chrome Logger For Firefox",
+  "version": "4.1.0",
+
+  "description": "For server side logging and debugging in chrome console.",
+
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["chromelogger.js", "chromelogger-options.js", "log.js"],
+      "run_at": "document_start"
+    }
+  ],
+
+  "applications" : {
+    "gecko" : {
+      "id" : "chrome-logger-for-firefox@marinetti.fr",
+      "strict_min_version": "42.0",
+      "strict_max_version": "50.*"
+    }
+  },
+
+
+  "background": {
+    "scripts": ["chromelogger.js"]
+  },
+  "options_page": "options.html",
+
+  "browser_action": {
+    "default_icon": "icon38_disabled.png",
+    "default_title": "Chrome Logger"
+  },
+  "minimum_chrome_version": "17",
+  "manifest_version": 2,
+  "permissions":
+  [
+    "webRequest",
+    "tabs",
+    "http://*/*",
+    "https://*/*"
+  ]
 }
